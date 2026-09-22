@@ -1,0 +1,12 @@
+<resources>
+    <!-- 신청서 화면이 밝은 색 기준이라 어두운 모드에서도 같은 테마를 쓴다 -->
+    <style name="Theme.RatePlanner" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/brand</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondaryContainer">#FFE3E8</item>
+        <item name="colorOnSecondaryContainer">@color/brand_dark</item>
+        <item name="android:statusBarColor">@color/ink</item>
+        <item name="android:windowBackground">@color/page</item>
+    </style>
+
+</resources>

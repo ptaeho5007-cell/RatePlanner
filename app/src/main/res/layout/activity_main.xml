@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 본문 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <!-- 태블릿 · 폴드 펼침 (가로 600dp 이상) : 항상 보이는 사이드바 -->
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navSide"
+            android:layout_width="240dp"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            app:headerLayout="@layout/nav_header"
+            app:menu="@menu/drawer" />
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/refresh"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!-- 탭마다 웹화면을 따로 두어, 메뉴를 옮겨도 입력 내용이 유지되게 한다 -->
+                <FrameLayout
+                    android:id="@+id/webHost"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/progress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:visibility="gone"
+                app:indicatorColor="@color/brand"
+                app:trackThickness="3dp" />
+
+            <!-- 폰 : 왼쪽 가장자리 손잡이 (누르면 사이드바 열림) -->
+            <FrameLayout
+                android:id="@+id/edgeTab"
+                android:layout_width="22dp"
+                android:layout_height="56dp"
+                android:layout_gravity="start|center_vertical"
+                android:background="@drawable/edge_tab"
+                android:contentDescription="메뉴 열기"
+                android:elevation="4dp">
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_chevron"
+                    app:tint="@color/white" />
+            </FrameLayout>
+
+            <!-- 연결 실패 안내 -->
+            <LinearLayout
+                android:id="@+id/offline"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/page"
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="32dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/offline_title"
+                    android:textColor="@color/ink"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="@string/offline_msg"
+                    android:textSize="14sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnRetry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/retry" />
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+
+    <!-- 폰 : 밀어서 여는 사이드바 -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navDrawer"
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/drawer" />
+</androidx.drawerlayout.widget.DrawerLayout>

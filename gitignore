@@ -1,0 +1,23 @@
+# ── 요금설계 (kr.co.rateplanner) ──
+
+# 빌드 결과물
+build/
+app/build/
+.gradle/
+*.apk
+*.aab
+captures/
+.externalNativeBuild/
+.cxx/
+
+# PC 개인 설정 (SDK 경로 등)
+local.properties
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
+
+# 서명 키 — 절대 올리면 안 됨
+*.jks
+*.keystore
+keystore.properties

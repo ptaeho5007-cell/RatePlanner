@@ -1,0 +1,7 @@
+<resources>
+    <color name="brand">#E4002B</color>
+    <color name="brand_dark">#B30022</color>
+    <color name="ink">#1F2328</color>
+    <color name="page">#F5F6F8</color>
+    <color name="white">#FFFFFF</color>
+</resources>

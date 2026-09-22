@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 사이드바 메뉴 (폰 : 왼쪽에서 밀어서 열기 / 태블릿 · 폴드 펼침 : 항상 보임) -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:id="@+id/g_form" android:checkableBehavior="single">
+        <item android:id="@+id/nav_mobile" android:icon="@drawable/ic_phone" android:title="무선 신청서" />
+        <item android:id="@+id/nav_wired"  android:icon="@drawable/ic_home"  android:title="유선 신청서" />
+    </group>
+    <item android:title="출력">
+        <menu>
+            <item android:id="@+id/nav_forms" android:icon="@drawable/ic_doc"   android:title="통신사 서식지 출력" />
+            <item android:id="@+id/nav_pay"   android:icon="@drawable/ic_money" android:title="수납 요청서" />
+        </menu>
+    </item>
+    <item android:title="앱">
+        <menu>
+            <item android:id="@+id/nav_refresh" android:icon="@drawable/ic_refresh_dark" android:title="새로고침" />
+            <item android:id="@+id/nav_logout"  android:icon="@drawable/ic_logout"       android:title="로그아웃" />
+        </menu>
+    </item>
+</menu>
